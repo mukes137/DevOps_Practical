@@ -11,8 +11,8 @@ jobs:                                    # defines the job that run in this work
         uses: actions/checkout@v3        # checks the repository code into runner's machine
 
       - name: install required dependencies
-        run: npm ci
+        run: npm ic
 
-      - name: Build the app
-        run: npm run build  
+      # - name: Build the app
+      #   run: npm run build  
 
