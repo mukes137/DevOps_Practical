@@ -5,7 +5,7 @@ on:
       - main
 jobs:                                    # defines the job that run in this workflow
   build:
-    runs_on: ubuntu-latest               # ubuntu runner will be used to run the job
+    runs-on: ubuntu-latest               # ubuntu runner will be used to run the job
     steps: 
       - uses: actions/checkout@v3        # checks the repository code into runner's machine
       
