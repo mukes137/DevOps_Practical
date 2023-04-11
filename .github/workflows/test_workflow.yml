@@ -13,3 +13,6 @@ jobs:                                    # defines the job that run in this work
       - name: install required dependencies
         run: npm ci
 
+      - name: Build the app
+        run: npm run build  
+
