@@ -10,8 +10,13 @@ jobs:                                    # defines the job that run in this work
       - name: Checkout code 
         uses: actions/checkout@v3        # checks the repository code into runner's machine
 
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+
       - name: install required dependencies
-        run:  npm install
+        run:  npm ci
 
       # - name: Build the app
       #   run: npm run build  
