@@ -21,37 +21,3 @@ jobs:                                    # defines the job that run in this work
       # - name: Build the app
       #   run: npm run build  
 
-workflow_changes:
-    needs: test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Install workflow-changes
-        uses: dorny/workflow-changes-action@v1.1.0
-
-      - name: Check for workflow changes
-        id: workflow_changes
-        run: |
-          if [ -n "$GITHUB_WORKFLOW_CHANGED" ]; then
-            echo "Workflow changes detected"
-            echo "Workflow files changed: $GITHUB_WORKFLOW_CHANGED"
-            exit 1
-          else
-            echo "No workflow changes detected"
-          fi
-
-      - name: Send Slack message on failure
-        if: failure() && steps.workflow_changes.outputs.changed == 'true'
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL }}
-          SLACK_USERNAME: GitHub Actions
-        with:
-          status: failure
-          message: |
-            Workflow changes detected in:
-            ${{ steps.workflow_changes.outputs.files_changed }}
-
