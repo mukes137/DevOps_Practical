@@ -1,2 +1,1 @@
-# DevOps_Practical
-I will be performing practical session about devops tools 
+Currently I am working on CICD with github actions
