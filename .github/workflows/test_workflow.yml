@@ -15,8 +15,8 @@ jobs:                                    # defines the job that run in this work
         with:
           node-version: '14.x'
 
-      # - name: install required dependencies
-      #   run:  npm ci
+      - name: install required dependencies
+        run:  npm install
 
       # - name: Build the app
       #   run: npm run build  
