@@ -1,18 +1,18 @@
-let form = document.getElementById("form");
+//let form = document.getElementById("form");
 let input = document.getElementById('input');
 let dateInput = document.getElementById('dateInput')
 let task = document.getElementById('task');
 
 
 
-form.addEventListener("submit", (e) => {
+//form.addEventListener("submit", (e) => {
     e.preventDefault();
     formValidation();
     reset();
   });
 
 
-let formValidation = () => {
+//let formValidation = () => {
     if (input.value === "") {
         console.log("falure");
     } else {
