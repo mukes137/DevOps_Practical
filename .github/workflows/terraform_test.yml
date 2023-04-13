@@ -4,6 +4,7 @@ on:
   push:
     branches: 
       - html_ftadd
+      - new_ftadd
 
   pull_request:
     branches:
@@ -16,10 +17,10 @@ jobs:
 
       - name: Check terraform code
         uses: actions/checkout@v3
-        with:
-          repository: mukes137/aws_terraform
-          ref: main
-          path: terraform
+        # with:
+        #   repository: mukes137/aws_terraform
+        #   ref: main
+        #   path: terraform
 
       - name: Verify Terraform version
         run: terraform --version
