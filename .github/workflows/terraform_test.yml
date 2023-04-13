@@ -41,4 +41,4 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
         uses: mukes137/DevOps_Practical@new_ftadd
-        run: terraform apply -auto-approve -input=false
+        uses: terraform apply -auto-approve -input=false
