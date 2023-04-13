@@ -25,6 +25,16 @@ jobs:                                    # defines the job that run in this work
       # - name: Build the app
       #   run: npm run build  
 
+name: terraform tasks defined            # optional 
+on: 
+  push:
+    branches: 
+      - html_ftadd
+
+  pull_request:
+    branches:
+      - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
