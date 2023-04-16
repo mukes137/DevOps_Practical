@@ -44,6 +44,9 @@ jobs:
         run: terraform validate
 
       - name: Terraform apply
+        env:
+          AWS-ACCESS-KEY-ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS-SECRET-ACCESS-KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
          cd ec2/
          terraform init
