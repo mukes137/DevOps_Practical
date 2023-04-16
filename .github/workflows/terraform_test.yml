@@ -45,5 +45,7 @@ jobs:
 
       - name: Terraform apply
         run: |
+          cd /home/morales/Desktop/DevOps_Practical
+          terraform init
           cd ec2/
           terraform apply -auto-approve -input=false
