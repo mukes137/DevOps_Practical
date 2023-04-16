@@ -9,9 +9,11 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "us-east-1"
-  profile = "default"
-}  
+  access_key = "${{ secrets.AWS_ACCESS_KEY_ID }}"
+  secret_key = "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+  region     = "us-east-1"
+}
+
 
 resource "aws_security_group" "ec2-sg"{
   name = "${var.name}-sg"
