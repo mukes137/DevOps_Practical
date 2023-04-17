@@ -70,7 +70,7 @@ resource "aws_instance" "server" {
   {
     Name              = var.name
     Environment       = "test"
-    TTL               = "Apr 12"
+    TTL               = "Apr 18"
   }
 )
 }
