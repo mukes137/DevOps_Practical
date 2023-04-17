@@ -6,6 +6,7 @@ on:
       - new_ftadd
       - webchange
       - terraform
+      - ansible
 
 jobs:
   test:
