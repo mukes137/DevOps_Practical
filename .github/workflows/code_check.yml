@@ -5,6 +5,7 @@ on:
       - html_ftadd
       - new_ftadd
       - webchange
+      - terraform
 
 jobs:
   test:
