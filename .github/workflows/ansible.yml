@@ -31,7 +31,7 @@ jobs:
       #   run: ansible-playbook playbook.yml --syntax-check
 
       - name: Deploy the changes in ec2
-        cd: ansible
+          cd ansible/
         run: ansible-playbook ansible/playbook.yml -i aws_ec2.yml
         env:
          AWS-ACCESS-KEY-ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
