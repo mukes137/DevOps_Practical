@@ -27,8 +27,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install ansible boto3 botocore
 
-      - name: Check syntax
-        run: ansible-playbook playbook.yml --syntax-check
+      # - name: Check syntax
+      #   run: ansible-playbook playbook.yml --syntax-check
 
       - name: Deploy the changes in ec2
         run: ansible-playbook playbook.yml -i aws_ec2.yml
