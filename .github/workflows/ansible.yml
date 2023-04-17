@@ -1,0 +1,36 @@
+name: Code check for ansible playbook
+on:
+  push:
+    branches:
+      - html_ftadd
+      - new_ftadd
+      - webchange
+      - workflow
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps: 
+       uses: actions/checkout@v3
+
+     - name: Install Ansible
+       run: sudo apt update && sudo apt install ansible
+
+     - name: Set up python
+       uses: actions/setup-python@v2
+       with:
+        python-version: 3
+
+     - name: Install dependencies
+       run: |
+          python -m pip install --upgrade pip
+          pip install ansible boto3 botocore
+
+     - name: Check syntax
+       run: ansible-playbook playbook.yml --syntax-check
+
+     - name: Deploy the changes in ec2
+       run: ansible-playbook playbook.yml -i inventory.ini
+       env:
+         AWS-ACCESS-KEY-ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         AWS-SECRET-ACCESS-KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
