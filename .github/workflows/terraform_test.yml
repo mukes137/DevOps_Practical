@@ -1,5 +1,5 @@
 
-name: terraform tasks defined            # optional 
+name: terraform tasks defined to deploy ec2 instance         # optional 
 on: 
   # push:
   #   branches: 
@@ -9,6 +9,8 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - ec2
 
 jobs:
   deploy:
