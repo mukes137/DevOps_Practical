@@ -3,10 +3,15 @@ on:
   push:
     branches: 
       - html_ftadd
+      - webchange
+      - new_ftadd
 
   pull_request:
     branches:
       - main
+    paths:
+      - todo_app
+      
 jobs:                                    # defines the job that run in this workflow
   build:
     runs-on: ubuntu-latest               # ubuntu runner will be used to run the job
