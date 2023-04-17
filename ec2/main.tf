@@ -11,7 +11,7 @@ terraform {
 provider "aws" {
   region                        = "us-east-1"
   # profile                     = "default" 
-  shared_credentials_file       ="~/.aws/credentials"
+  shared_credentials_files      = [ "~/.aws/credentials" ]
     
 }
 
@@ -20,49 +20,45 @@ resource "aws_security_group" "ec2-sg"{
   name = "${var.name}-sg"
   description = "EC2 Security Group"
   vpc_id = var.vpc_id
-}
 
-resource "aws_security_group_rule" "sg-http"{
-  type = "ingress"
-  security_group_id = aws_security_group.ec2-sg.id
-  from_port        = 80
-  to_port          = 80
-  protocol         = "TCP"
-  cidr_blocks      = ["0.0.0.0/0"]
-}
+   ingress {
+      description = "SSH"
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+   }
 
-resource "aws_security_group_rule" "sg-https"{
-  type = "ingress"
-  security_group_id = aws_security_group.ec2-sg.id
-  from_port        = 443
-  to_port          = 443
-  protocol         = "TCP"
-  cidr_blocks      = ["0.0.0.0/0"]
-}
+   ingress {
+    description = "HTTP"
+    from_port   = 80
+    to_port     = 80
+    protocol    ="tcp"
+    cidr_blocks  = ["0.0.0.0/0"]
+   }
 
-resource "aws_security_group_rule" "sg-ssh"{
-  type = "ingress"
-  security_group_id = aws_security_group.ec2-sg.id
-  from_port        = 22
-  to_port          = 22
-  protocol         = "TCP"
-  cidr_blocks      = ["0.0.0.0/0"]
-}
+   ingress {
+    description = "HTTPS"
+    from_port   = 443
+    to_port     = 443
+    protocol    ="tcp"
+    cidr_blocks  = ["0.0.0.0/0"]
+   }
 
-resource "aws_security_group_rule" "sg-egress"{
-  type = "egress"
-  security_group_id = aws_security_group.ec2-sg.id
-  from_port        = 0
-  to_port          = 0
-  protocol         = "-1"
-  cidr_blocks      = ["0.0.0.0/0"]
+
+   egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    ="-1"
+    cidr_blocks = ["0.0.0.0/0"]
+   }
 }
 
 resource "aws_instance" "server" {
   ami = var.ami_id
   instance_type = var.instance_type
   subnet_id = var.subnet_id
-  security_group_id = aws_security_group.ec2-sg.id
+  security_group_id = [aws_security_group.ec2-sg.id]
   key_name = "mukesh"
     root_block_device{
     volume_size = 8
