@@ -1,10 +1,10 @@
 
 name: terraform tasks defined            # optional 
 on: 
-  push:
-    branches: 
-      - html_ftadd
-      - new_ftadd
+  # push:
+  #   branches: 
+  #     - html_ftadd
+  #     - new_ftadd
 
   pull_request:
     branches:
@@ -17,11 +17,7 @@ jobs:
 
       - name: Check terraform code
         uses: actions/checkout@v3
-        # with:
-        #   repository: mukes137/aws_terraform
-        #   ref: main
-        #   path: terraform
-
+       
       - name: Verify Terraform version
         run: terraform --version
 
@@ -44,9 +40,6 @@ jobs:
         run: terraform validate
 
       - name: Terraform apply
-        env:
-          AWS-ACCESS-KEY-ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS-SECRET-ACCESS-KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
          cd ec2/
          terraform init
