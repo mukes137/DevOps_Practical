@@ -1,0 +1,13 @@
+name: Checking the code pushed in new branches before pull request            # optional 
+on: 
+  push:
+    branches: 
+      - html_ftadd
+      - new_ftadd
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check terraform code
+        uses: actions/checkout@v3
