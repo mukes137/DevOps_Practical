@@ -21,3 +21,6 @@ jobs:
 
       - name: install required dependencies
         run:  npm install
+
+      - name: Check terraform code
+        uses: actions/checkout@v3
