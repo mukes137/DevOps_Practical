@@ -3,8 +3,8 @@ on:
   push:
     branches: 
       - html_ftadd
-      - webchange
       - new_ftadd
+      - webchange
 
   pull_request:
     branches:
