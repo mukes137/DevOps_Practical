@@ -2,8 +2,11 @@ name: test file for workflow1             # optional
 on: 
   push:
     branches: 
-      - main
       - html_ftadd
+
+  pull_request:
+    branches:
+      - main
 jobs:                                    # defines the job that run in this workflow
   build:
     runs-on: ubuntu-latest               # ubuntu runner will be used to run the job
@@ -21,4 +24,3 @@ jobs:                                    # defines the job that run in this work
 
       # - name: Build the app
       #   run: npm run build  
-
