@@ -2,12 +2,7 @@ name: Checking the code pushed in new branches before pull request            # 
 on: 
   push:
     branches: 
-      - html_ftadd
-      - new_ftadd
-      - webchange
-      - terraform
-      - ansible
-      - workflow
+      - changes
 
 jobs:
   test:
