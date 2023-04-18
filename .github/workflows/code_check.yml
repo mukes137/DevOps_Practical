@@ -26,11 +26,11 @@ jobs:
         with:
           python-version: 3
 
-      - name: install ansible lint
-        run: pip install ansible-lint
+      # - name: install ansible lint
+      #   run: pip install ansible-lint
 
       - name: Using lint to check ansible code
-        run: ansible-lint ./roles/*/tasks/*.yml
+        uses: ansible/ansible-lint-action@main
 
         # Code check part for terraform
 
