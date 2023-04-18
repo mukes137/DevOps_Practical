@@ -5,6 +5,8 @@ on:
       - html_ftadd
       - new_ftadd
       - webchange
+      - terraform
+      - ansible
 
 jobs:
   test:
@@ -20,3 +22,6 @@ jobs:
 
       - name: install required dependencies
         run:  npm install
+
+      - name: Check terraform code
+        uses: actions/checkout@v3

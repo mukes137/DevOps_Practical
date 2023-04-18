@@ -1,10 +1,11 @@
 
 name: terraform tasks defined to deploy ec2 instance         # optional 
 on: 
-  # push:
-  #   branches: 
-  #     - html_ftadd
-  #     - new_ftadd
+  push:
+    branches: 
+      # - html_ftadd
+      # - new_ftadd
+      - workflow
 
   pull_request:
     branches:

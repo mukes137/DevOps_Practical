@@ -1,0 +1,24 @@
+- name: install apache
+  apt:
+      name: 
+        - apache2
+      update_cache: yes
+      state: latest
+
+- name: remove index.html file 
+  file:
+      path: "{{path}}/index.html"
+      state: absent
+
+- name: move files in remote instance
+  copy:
+      src: https://github.com/mukes137/DevOps_Practical/tree/main/todo_app
+      dest: "{{path}}"
+      force: true
+
+- name: restart service
+  service:
+	  name: "apache2"
+	  state: restarted
+	  enabled: yes
+      
