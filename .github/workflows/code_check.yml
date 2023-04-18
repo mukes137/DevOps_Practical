@@ -30,7 +30,7 @@ jobs:
         run: pip install ansible-lint
 
       - name: Using lint to check ansible code
-        run: ansible lint roles/*/tasks/*.yml
+        run: ansible-lint roles/*/tasks/*.yml
 
         # Code check part for terraform
 
