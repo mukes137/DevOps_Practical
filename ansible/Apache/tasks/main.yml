@@ -4,7 +4,7 @@
     update_cache: true
     state: present
 
-- name: REMOVE INDEX.HTML FILE 
+- name: REMOVE INDEX.HTML FILE
   ansible.builtin.file:
     path: '{{ path }}/index.html'
     state: absent
@@ -14,10 +14,9 @@
     src: https://github.com/mukes137/DevOps_Practical/tree/main/todo_app
     dest: '{{ path }}'
     force: true
-    
+
 - name: RESTART APACHE
   ansible.builtin.service:
     name: apache2
     state: restarted
     enabled: true
-    
