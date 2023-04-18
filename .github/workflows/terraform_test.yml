@@ -1,17 +1,12 @@
 
-name: terraform tasks defined to deploy ec2 instance         # optional 
-on: 
-  push:
-    branches: 
-      # - html_ftadd
-      # - new_ftadd
-      - workflow
-
+name: Terraform tasks defined to deploy ec2 instance         # optional 
+on:
   pull_request:
     branches:
       - main
     paths:
-      - ec2
+      - terraform/modules/ec2
+      - todo_app
 
 jobs:
   deploy:

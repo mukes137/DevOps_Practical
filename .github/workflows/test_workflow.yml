@@ -1,12 +1,5 @@
 name: test file for workflow1             # optional 
 on: 
-  push:
-    branches: 
-      - html_ftadd
-      - new_ftadd
-      - webchange
-      - ansible
-
   pull_request:
     branches:
       - main
