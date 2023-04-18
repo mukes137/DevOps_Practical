@@ -2,12 +2,7 @@ name: Code check for ansible playbook
 on:
   push:
     branches:
-      - html_ftadd
-      - new_ftadd
-      - webchange
-      - workflow
-      - ansible  
-      - terraform    
+     - changes   
 
 jobs:
   test:
