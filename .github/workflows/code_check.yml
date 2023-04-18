@@ -19,4 +19,22 @@ jobs:
       - name: install required dependencies
         run:  npm install
 
+        # Code check part for ansible 
+
+      - name: Set up python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3
+
+      - name: install ansible lint
+        run: pip install ansible-lint
+
+      - name: Using lint to check ansible code
+        run: ansible lint roles/*/tasks/*.yml
+
+        # Code check part for terraform
+
+      - name: lint Terraform code
+        uses: actionshub/terraform-lint@main
+
       
