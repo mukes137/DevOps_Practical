@@ -18,7 +18,7 @@
 
 - name: restart service
   service:
-	  name: "apache2"
+	  name: apache2
 	  state: restarted
 	  enabled: yes
       
