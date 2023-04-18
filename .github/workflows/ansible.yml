@@ -1,8 +1,11 @@
 name: Code check for ansible playbook
 on:
-  push:
+  pull_request:
     branches:
-     - changes   
+      - main 
+    paths:
+      - ansible
+      - terraform/modules/ec2    
 
 jobs:
   test:
