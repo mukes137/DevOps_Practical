@@ -1,28 +1,21 @@
 resource "aws_s3_bucket" "backend" {
-  bucket = "my-terraform-bucket-for-state-files"
-  acl    = "private"
+  bucket          = "statefile-bucket"
+  acl             = "private"
 
   tags = {
-    Name = "Terraform Bucket For State Files "
+    Name          = "bucket for CICD"
+    Used_for      = "Terraform Bucket For State Files "
+    Owner         = "Mukesh"
   }
 }
 
-resource "aws_dynamodb_table" "db" {
-  name           = "terraform-state-lock"
-  billing_mode   = "PAY_PER_REQUEST"
-  hash_key       = "LockID"
-  attribute {
-    name = "LockID"
-    type = "S"
-  }
-}
 
 terraform {
   backend "s3" {
     bucket         = "my-terraform--bucket-for-state-files"
-    key            = "terraform.tfstate"
+    key            = "terraform-statefile-collection"
     region         = "us-east-1"
-    dynamodb_table = "terraform-state-lock"
+    
   }
 }
 
