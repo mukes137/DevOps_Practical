@@ -2,7 +2,7 @@
   apt:
     name: 
       - apache2
-    update_cache: yes
+    update_cache: true
     state: latest
 
 - name: remove index.html file 
@@ -16,9 +16,8 @@
     dest: "{{path}}"
     force: true
 
-- name: restart service
+- name: RESTART APACHE
   service:
-	  name: apache2
-	  state: restarted
-	  enabled: yes
-      
+    name: apache2
+    state: restarted
+    enabled: true
