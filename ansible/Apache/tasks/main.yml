@@ -1,23 +1,22 @@
-- name: install apache
-  apt:
-    name: 
-      - apache2
+- name: INSTALL APACHE
+  ansible.builtin.apt:
+    name: apache2
     update_cache: true
-    state: latest
+    state: present
 
-- name: remove index.html file 
-  file:
-    path: "{{path}}/index.html"
+- name: REMOVE INDEX.HTML FILE 
+  ansible.builtin.file:
+    path: '{{ path }}/index.html'
     state: absent
 
-- name: move files in remote instance
-  copy:
+- name: MOVE FILES TO REMOTE INSTANCE
+  ansible.builtin.copy:
     src: https://github.com/mukes137/DevOps_Practical/tree/main/todo_app
-    dest: "{{path}}"
+    dest: '{{ path }}'
     force: true
-
+    
 - name: RESTART APACHE
-  service:
+  ansible.builtin.service:
     name: apache2
     state: restarted
     enabled: true
