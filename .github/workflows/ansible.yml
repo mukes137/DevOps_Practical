@@ -12,7 +12,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: 
+      - name: Checking the ansible code
         uses: actions/checkout@v3
 
       - name: Install Ansible
@@ -33,7 +33,7 @@ jobs:
 
       - name: Deploy the changes in ec2
           cd ansible/
-        run: ansible-playbook ansible/playbook.yml -i aws_ec2.yml
+        run: ansible-playbook playbook.yml -i aws_ec2.yml 
         env:
          AWS-ACCESS-KEY-ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
          AWS-SECRET-ACCESS-KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
