@@ -20,5 +20,5 @@ module "ec2" {
 }
 
 module "s3" {
-  source = "./modules/s3"
+  source = "terraform/modules/s3"
 }
