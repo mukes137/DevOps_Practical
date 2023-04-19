@@ -52,7 +52,7 @@ resource "aws_instance" "server" {
     {
       Name        = var.name
       Environment = "intern-test"
-      TTL         = "ask me"
+      TTL         = "ask me "
     }
   )
 }
