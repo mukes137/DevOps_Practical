@@ -44,8 +44,10 @@ jobs:
 
       - name: Terraform apply
         run: |
-         cd terraform/modules/s3/
-         cd terraform/modules/ec2/
+
+        #  cd terraform/modules/s3/
+        #  cd terraform/modules/ec2/
+         cd terraform/main/
          terraform init
          terraform plan
          terraform apply -auto-approve -input=false
