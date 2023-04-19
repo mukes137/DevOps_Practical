@@ -1,6 +1,11 @@
 
 name: Terraform tasks defined to deploy ec2 instance         # optional 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - terraform/modules/ec2
   pull_request:
     branches:
       - main
