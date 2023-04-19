@@ -1,58 +1,58 @@
-resource "aws_security_group" "ec2-sg"{
-  name = "${var.name}-sg"
+resource "aws_security_group" "ec2-sg" {
+  name        = "${var.name}-sg"
   description = "EC2 Security Group"
-  vpc_id = var.vpc_id
+  vpc_id      = var.vpc_id
 
-   ingress {
-      description = "SSH"
-      from_port   = 22
-      to_port     = 22
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-   }
+  ingress {
+    description = "SSH"
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
-   ingress {
+  ingress {
     description = "HTTP"
     from_port   = 80
     to_port     = 80
-    protocol    ="tcp"
-    cidr_blocks  = ["0.0.0.0/0"]
-   }
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
-   ingress {
+  ingress {
     description = "HTTPS"
     from_port   = 443
     to_port     = 443
-    protocol    ="tcp"
-    cidr_blocks  = ["0.0.0.0/0"]
-   }
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
 
-   egress {
+  egress {
     from_port   = 0
     to_port     = 0
-    protocol    ="-1"
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
-   }
+  }
 }
 
 resource "aws_instance" "server" {
-  ami = var.ami_id
-  instance_type = var.instance_type
-  subnet_id = var.subnet_id
+  ami             = var.ami_id
+  instance_type   = var.instance_type
+  subnet_id       = var.subnet_id
   security_groups = [aws_security_group.ec2-sg.id]
-  key_name = "mukesh"
-    root_block_device{
+  key_name        = "mukesh"
+  root_block_device {
     volume_size = 8
     volume_type = "gp3"
-    encrypted = true
+    encrypted   = true
   }
   tags = merge(
-  var.tags,
-  {
-    Name              = var.name
-    Environment       = "test"
-    TTL               = "Apr 12"
-  }
-)
+    var.tags,
+    {
+      Name        = var.name
+      Environment = "test"
+      TTL         = "Apr 12"
+    }
+  )
 }
