@@ -51,7 +51,7 @@ resource "aws_instance" "server" {
     var.tags,
     {
       Name        = var.name
-      Environment = "test"
+      Environment = "intern-test"
       TTL         = "ask me"
     }
   )
