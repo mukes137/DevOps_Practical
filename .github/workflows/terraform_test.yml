@@ -44,7 +44,7 @@ jobs:
 
       - name: Terraform apply
         run: |
-         cd /terraform/main/
+         cd './terraform/main/'
          terraform init
          terraform plan
          terraform apply -auto-approve -input=false
