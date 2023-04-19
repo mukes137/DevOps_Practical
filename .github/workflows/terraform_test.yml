@@ -44,6 +44,7 @@ jobs:
 
       - name: Terraform apply
         run: |
+         cd terraform/modules/s3/
          cd terraform/modules/ec2/
          terraform init
          terraform plan
