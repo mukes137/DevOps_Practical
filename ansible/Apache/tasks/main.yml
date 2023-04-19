@@ -13,6 +13,9 @@
   ansible.builtin.copy:
     src: https://github.com/mukes137/DevOps_Practical/tree/main/todo_app
     dest: '{{ path }}'
+    owner: morales
+    group: morales
+    mode: '0600'
     force: true
 
 - name: RESTART APACHE
