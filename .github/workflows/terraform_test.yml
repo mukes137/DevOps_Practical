@@ -5,12 +5,12 @@ on:
     branches:
       - main
     paths:
-      - terraform/modules/ec2
+      - 'terraform/modules/ec2'
   pull_request:
     branches:
       - main
     paths:
-      - terraform/modules/ec2
+      - 'terraform/modules/ec2'
       - todo_app
 
 jobs:
