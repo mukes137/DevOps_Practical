@@ -5,7 +5,7 @@ on:
       - main 
     paths:
       - ansible
-      - terraform/modules/ec2    
+      - terraform/modules/ec2
 
 jobs:
   test:
