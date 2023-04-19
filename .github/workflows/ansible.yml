@@ -2,10 +2,10 @@ name: Code check for ansible playbook
 on:
   pull_request:
     branches:
-      - main
+      - main 
     paths:
       - ansible
-      - terraform/modules/ec2  
+      - terraform/modules/ec2
 
 jobs:
   test:
