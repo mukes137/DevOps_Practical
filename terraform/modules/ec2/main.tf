@@ -47,12 +47,9 @@ resource "aws_instance" "server" {
     volume_type = "gp3"
     encrypted   = true
   }
-  tags = merge(
-    var.tags,
-    {
+  tags = {
       Name        = var.name
       Environment = "test-intern"
       Owner       = "Mukesh"
     }
-  )
 }
