@@ -48,8 +48,8 @@ resource "aws_instance" "server" {
     encrypted   = true
   }
   tags = {
-      Name        = var.name
-      Environment = "test-intern"
-      Owner       = "Mukesh"
-    }
+    Name        = var.name
+    Environment = "test-intern"
+    Owner       = "Mukesh"
+  }
 }
