@@ -1,17 +1,12 @@
 
 name: Terraform tasks defined to deploy ec2 instance         # optional 
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - 'terraform/**'
   pull_request:
-    branches:
-      - main
-    paths:
-      - 'terraform/**'
-      - todo_app
+  branches:
+    - main
+  paths:
+    - 'terraform/**'
+    - todo_app
 
 jobs:
   deploy:
