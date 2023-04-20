@@ -1,6 +1,0 @@
----
-- name: MY PLAYBOOK
-  hosts: EC2
-  become: true
-  roles:
-    - Apache
