@@ -36,7 +36,7 @@ resource "aws_security_group" "ec2-sg" {
   }
 }
 
-resource "aws_instance" "server" {
+resource "aws_iance" "server" {
   ami             = var.ami_id
   instance_type   = var.instance_type
   subnet_id       = var.subnet_id
