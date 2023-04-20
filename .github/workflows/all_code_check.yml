@@ -37,8 +37,11 @@ jobs:
       - name: lint Terraform code format check
         uses: actionshub/terraform-lint@main
 
-      - name: terraform code check
-        uses: dflook/terraform-validate@v1
-        id: validate
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
         with:
-          path: terraform
+          terraform_version: 1.1.7
+
+      - name: Check syntax
+        run: terraform fmt -check
+        
