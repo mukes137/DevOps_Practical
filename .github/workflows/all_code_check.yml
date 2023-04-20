@@ -34,7 +34,8 @@ jobs:
 
         # Code check part for terraform
 
-      - name: lint Terraform code
+      - name: lint Terraform code format check
         uses: actionshub/terraform-lint@main
 
-      
+      - name: terraform code check
+        run: terraform validate
