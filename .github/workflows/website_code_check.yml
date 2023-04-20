@@ -1,4 +1,4 @@
-name: test file for workflow1             # optional 
+name: testing the website code           # optional 
 on: 
   pull_request:
     branches:
