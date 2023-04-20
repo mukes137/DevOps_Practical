@@ -38,4 +38,5 @@ jobs:
         uses: actionshub/terraform-lint@main
 
       - name: terraform code check
-        run: terraform validate
+        uses: dflook/terraform-validate@v1
+        id: validate
