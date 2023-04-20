@@ -1,5 +1,5 @@
-resource "aws_s3_bucket" "backend" {
-  bucket = "statefile-bucket"
+resource "aws_s3_bucket" "statefile" {
+  bucket = "state-file-bucket"
   acl    = "private"
 
   tags = {
@@ -12,8 +12,8 @@ resource "aws_s3_bucket" "backend" {
 
 terraform {
   backend "s3" {
-    bucket = "my-terraform--bucket-for-state-files"
-    key    = "terraform-statefile-collection"
+    bucket = "state-file-bucket"
+    key    = "terraform-state-file-collection"
     region = "us-east-1"
 
   }
