@@ -41,4 +41,4 @@ jobs:
         uses: dflook/terraform-validate@v1
         id: validate
         with:
-          path: 'terraform/**'
+          path: terraform
