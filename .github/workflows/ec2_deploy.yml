@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - 'terraform/**'
+      - 'terraform/modules/**'
       - todo_app
 
 jobs:
@@ -39,6 +39,7 @@ jobs:
       - name: Terraform apply
         run: |
          cd terraform/main/
+         terraforn validate
          terraform init
          terraform plan
          terraform apply -auto-approve -input=false
