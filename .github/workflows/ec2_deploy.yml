@@ -43,7 +43,7 @@ jobs:
 
       - name: Terraform apply
         run: |
-         cd terraform/**
+         cd 'terraform/**/'
          terraform init
          terraform validate
          terraform plan
