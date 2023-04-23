@@ -1,11 +1,18 @@
 name: Creating an ec2 instance         # optional 
 on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'terraform/modules/**'
-      - todo_app
+  workflow_dispatch:
+    inputs:
+      ec2_name:
+        description: ec2 name
+        required: true
+        default: CICD test
+        type: string
+  # pull_request:
+  #   branches:
+  #     - main
+  #   paths:
+  #     - 'terraform/modules/**'
+  #     - todo_app
 
 jobs:
   deploy:
