@@ -16,9 +16,9 @@ provider "aws" {
 }
 
 module "ec2" {
-  source = "terraform/modules/ec2"
+  source = "./terraform/modules/ec2"
 }
 
 module "s3" {
-  source = "terraform/modules/s3"
+  source = "./terraform/modules/s3"
 }
