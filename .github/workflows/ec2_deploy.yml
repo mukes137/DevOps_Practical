@@ -17,6 +17,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      path: "./terraform/main"
     steps:
 
       - name: Check terraform code
@@ -43,10 +45,10 @@ jobs:
 
       - name: Terraform apply
         run: |
-         cd terraform/modules
-         terraform init
-         terraform validate
-         terraform plan
-         terraform apply -auto-approve 
+          path
+          terraform init
+          terraform validate
+          terraform plan
+          terraform apply -auto-approve 
         
 
