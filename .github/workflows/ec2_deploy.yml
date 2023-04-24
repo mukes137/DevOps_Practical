@@ -18,7 +18,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      path: "terraform/main"
+      working_directory: terraform
     steps:
 
       - name: Check terraform code
@@ -45,7 +45,7 @@ jobs:
 
       - name: Terraform apply
         run: |
-          path
+          working_directory
           terraform init
           terraform validate
           terraform plan
