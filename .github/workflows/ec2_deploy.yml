@@ -45,7 +45,7 @@ jobs:
 
       - name: Terraform apply
         run: |
-          path
+          cd "$path"
           terraform init
           terraform validate
           terraform plan
