@@ -48,5 +48,5 @@ jobs:
 
       - name: Terraform apply
         run: |
-          cd ${{ env.working-directory }} \
-          terraform init && terraform plan
+          cd ${{ env.working-directory }} 
+          terraform init 
