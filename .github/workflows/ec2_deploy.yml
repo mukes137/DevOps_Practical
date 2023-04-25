@@ -40,18 +40,18 @@ jobs:
       # - name: Change terraform directory
       #   run: cd terraform/modules
 
-      - name: Terraform init          
-        run: terraform init 
+      # - name: Terraform init          
+      #   run: terraform init 
 
-      - name: Terraform validation
-        run: terraform validate
+      # - name: Terraform validation
+      #   run: terraform validate
 
       - name: Terraform apply
         run: |
-          cd terraform/modules
-          terraform init
-          terraform validate
-          terraform plan
+          cd terraform/modules &
+          terraform init &
+          terraform validate &
+          terraform plan &
           terraform apply -auto-approve 
         
 
