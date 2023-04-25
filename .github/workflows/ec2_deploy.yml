@@ -48,4 +48,4 @@ jobs:
 
       - name: Terraform apply
         run: |
-          cd terraform/modules && terraform init
+          cd terraform/modules && terraform init && terraform plan
