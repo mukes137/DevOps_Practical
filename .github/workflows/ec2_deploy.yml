@@ -18,7 +18,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      TERRAFORM_CLI_PATH: /home/runner/work/_temp/terraform
+      working-directory: ./terraform
     steps:
 
       - name: Check terraform code
@@ -48,4 +48,4 @@ jobs:
 
       - name: Terraform apply
         run: |
-          cd terraform/modules && terraform init && terraform plan
+          cd $working-directory && terraform init && terraform plan
