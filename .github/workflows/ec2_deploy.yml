@@ -37,8 +37,8 @@ jobs:
       - name: Set up terraform
         uses: hashicorp/setup-terraform@v2
 
-      - name: Change terraform directory
-        run: cd terraform/modules
+      # - name: Change terraform directory
+      #   run: cd terraform/modules
 
       - name: Terraform init          
         run: terraform init 
@@ -48,6 +48,7 @@ jobs:
 
       - name: Terraform apply
         run: |
+          cd terraform/modules
           terraform init
           terraform validate
           terraform plan
